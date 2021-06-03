@@ -1,0 +1,44 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.overlay {
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    position: absolute;
+    background-color: rgba(0, 0, 0, .7);
+}
+.white-txt{
+    color: #fff;
+}
+
+
+
+.main-txt {
+    color: #ce1b28;
+}
+
+.main-bg {
+    background-color: #111111;
+}
+
+.grey-txt {
+    color: #555555
+}
+
+p {
+    line-height: 150%;
+}
+
+button {
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+
+.upper-txt {
+    text-transform: uppercase;
+}

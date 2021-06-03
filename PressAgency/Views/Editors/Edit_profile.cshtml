@@ -1,0 +1,157 @@
+﻿@model PressAgency.Models.User
+
+@{ Layout = null; }
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Edit profile</title>
+    <link href="~/Content/DashBoard css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="~/Content/DashBoard css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="~/Content/DashBoard css/framework.css" rel="stylesheet" type="text/css">
+    <link href="~/Content/DashBoard css/DashBoardStyles.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+
+    <div class="navb">
+        <div class="container">
+            <nav class="row justify-content-between">
+
+                <section class="col-8">
+                    <span class="white-txt">PressAgency</span>
+                </section>
+                <section class="col-4 text-right grey-txt" id="right-side">
+                    <i class="fas fa-bars"></i>
+                    <span>Menu</span>
+                </section>
+            </nav>
+            <section id="nav-bar" class="white-txt">
+                <div id="exit"><i class="fas fa-times"></i></div>
+                <ul>
+                    <li class="grey-txt"><a href="@Url.Action("Show_profile", "Editors")">Profile</a></li>
+                    <li class="grey-txt"><a href="@Url.Action("Create_new_post", "Editors")">Create new post</a></li>
+                    <li class="grey-txt"><a href="@Url.Action("Show_MyPosts", "Editors")">MY Posts</a></li>
+                    <li class="grey-txt"><a href="@Url.Action("RecevedQuestions", "Editors")">Received questoins </a></li>
+                    <li class="grey-txt"><a href="@Url.Action("SignOut", "Accounts")">Log Out</a></li>
+                </ul>
+            </section>
+        </div>
+    </div>
+
+
+
+    @using (Html.BeginForm())
+    {
+@Html.AntiForgeryToken()
+
+                <div class="form-horizontal">
+                    <h4>User</h4>
+                    <hr />
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    @Html.HiddenFor(model => model.id)
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.UserName, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.PhoneNumber, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.photo, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.photo, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.photo, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Save" class="btn btn-default" />
+                        </div>
+                    </div>
+                </div>}
+
+    <div>
+        @Html.ActionLink("Back to Profile", "Show_profile")
+    </div>
+
+
+
+    <div class="footer-dark">
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 col-md-3 item">
+                        <h3>About</h3>
+                        <ul>
+                            <li><a href="#">Company</a></li>
+                            <li><a href="#">Team</a></li>
+                            <li><a href="#">Careers</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6 item text">
+                        <h3>PressAgency</h3>
+                        <p>Praesent sed lobortis mi. Suspendisse vel placerat ligula. Vivamus ac sem lacus. Ut vehicula rhoncus elementum. Etiam quis tristique lectus. Aliquam in arcu eget velit pulvinar dictum vel in justo.</p>
+                    </div>
+                    <div class="col item social"><a href="#"><i class="fab fa-facebook-square"></i></a><a href="#"><i class="fab fa-twitter"></i></a><a href="#"><i class="fab fa-google"></i></a><a href="#"><i class="fab fa-youtube"></i></a></div>
+                </div>
+                <p class="copyright">PressAgency © 2021</p>
+            </div>
+        </footer>
+    </div>
+
+
+
+
+    <script src="~/Scripts/DashBoard js/jquery.js"></script>
+    <script src="~/Scripts/DashBoard js/popper.js"></script>
+    <script src="~/Scripts/DashBoard js/bootstrap.min.js"></script>
+    <script src="~/Scripts/DashBoard js/all.min.js"></script>
+    <script src="~/Scripts/DashBoard js/custom.js"></script>
+</body>
+</html>
