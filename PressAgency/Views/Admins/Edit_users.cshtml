@@ -9,7 +9,7 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Edit</title>
+    <title>Edit_users</title>
     <link href="~/Content/DashBoard css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="~/Content/DashBoard css/all.min.css" rel="stylesheet" type="text/css">
     <link href="~/Content/DashBoard css/framework.css" rel="stylesheet" type="text/css">
@@ -33,10 +33,10 @@
             <section id="nav-bar" class="white-txt">
                 <div id="exit"><i class="fas fa-times"></i></div>
                 <ul>
-                    <li class="grey-txt"><a href="@Url.Action("Show_profile", "Editors")">Profile</a></li>
-                    <li class="grey-txt"><a href="@Url.Action("Create_new_post", "Editors")">Create new post</a></li>
-                    <li class="grey-txt"><a href="@Url.Action("Show_MyPosts", "Editors")">MY Posts</a></li>
-                    <li class="grey-txt"><a href="@Url.Action("RecevedQuestions", "Editors")">Received questoins </a></li>
+                    <li class="grey-txt"><a href="@Url.Action("Show_profile", "Admins")">Profile</a></li>
+                    <li class="grey-txt"><a href="@Url.Action("Show_users", "Admins")">User's Page</a></li>
+                    <li class="grey-txt"><a href="@Url.Action("Show_posts", "Admins")">Posts Page</a></li>
+                    <li class="grey-txt"><a href="@Url.Action("Show_requests", "Admins")">Posts Requests</a></li>
                     <li class="grey-txt"><a href="@Url.Action("SignOut", "Accounts")">Log Out</a></li>
                 </ul>
             </section>
@@ -49,7 +49,7 @@
     {
         @Html.AntiForgeryToken()
 
-        <div class="form-horizontal" align="center">
+        <div class="form-horizontal">
             <h4>User</h4>
             <hr />
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
@@ -79,6 +79,13 @@
                 </div>
             </div>
 
+            <div class="form-group">
+                @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                </div>
+            </div>
 
             <div class="form-group">
                 @Html.LabelFor(model => model.PhoneNumber, htmlAttributes: new { @class = "control-label col-md-2" })

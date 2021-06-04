@@ -118,7 +118,8 @@
             </dl>
         </div>
         <p>
-            @Html.ActionLink("Back to List", "adminPage") |
+            @Html.ActionLink("Edit", "Edit_profile", new { id = Model.id })
+            @Html.ActionLink("AdminPage", "adminPage", new { @class = "btn btn-dark" })
         </p>
     </div>
 

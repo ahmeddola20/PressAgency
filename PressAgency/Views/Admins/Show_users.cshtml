@@ -45,8 +45,9 @@
     <div class="content container">
         <p>
             @Html.ActionLink("Create New", "Create_users", new { @class = "btn btn-dark" })
+            @Html.ActionLink("AdminPage", "adminPage", new { @class = "btn btn-dark" })
         </p>
-        <table class="table table-dark table-striped">
+        <table class="table table-dark table-striped" style="overflow-x: scroll; width: 100%; display: block; ">
             <thead>
                 <tr>
                     <th scope="col">
